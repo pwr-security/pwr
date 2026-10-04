@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weakness xmlns="urn:pwr:entry">
+  <metadata>
+    <id>1</id>
+    <schema_version>1</schema_version>
+    <content_version>0</content_version>
+    <status>active</status>
+    <abstraction>class</abstraction>
+    <created>2026-10-04</created>
+  </metadata>
+
+  <title>Improper Control of Physical Entry to Protected Areas</title>
+
+  <alternate_terms>
+    <term>Weak Physical Access Control</term>
+    <term>Inadequate Entry Control</term>
+  </alternate_terms>
+
+  <description>The facility does not adequately restrict entry to an area that holds sensitive assets, or the restriction can be bypassed.</description>
+
+  <extended_description>
+    <applicability>Areas whose contents justify limiting who may enter, such as server rooms, network closets, archives and rooms holding confidential material. Areas that are intentionally open to the public and hold nothing sensitive are not affected. The level of control required depends on the sensitivity of the area and of its contents.</applicability>
+
+    <exploitation>An unauthorized person enters because entry is not verified, because the verification can be defeated, or because entry is granted more widely than the area requires.</exploitation>
+
+    <consequences>
+      <row>
+        <impact>Confidentiality</impact>
+        <details>Unauthorized persons can view, copy or remove information, media and equipment.</details>
+      </row>
+      <row>
+        <impact>Integrity</impact>
+        <details>Equipment, configurations and records can be altered, leaving little or no trace.</details>
+      </row>
+      <row>
+        <impact>Availability</impact>
+        <details>Critical equipment can be disconnected, damaged or removed.</details>
+      </row>
+    </consequences>
+
+    <potential_mitigations>
+      <row>
+        <measure>Delimit protected areas</measure>
+        <description>Define areas according to the sensitivity of their contents, with a continuous boundary that cannot be avoided.</description>
+      </row>
+      <row>
+        <measure>Verify entry at the boundary</measure>
+        <description>Control entry to each sensitive area with a means suited to its sensitivity, applied before the person passes.</description>
+      </row>
+      <row>
+        <measure>Grant access according to need</measure>
+        <description>Limit each person to the areas their role requires, and review these rights periodically.</description>
+      </row>
+      <row>
+        <measure>Record and review entries</measure>
+        <description>Log entries to sensitive areas and review the records.</description>
+      </row>
+    </potential_mitigations>
+
+    <safety_notes>
+      <row>
+        <constraint>Emergency egress</constraint>
+        <description>Entry restrictions must not impede exit. Egress devices on escape routes must remain usable under the applicable fire and building regulations.</description>
+      </row>
+      <row>
+        <constraint>Emergency services access</constraint>
+        <description>Responders must be able to reach protected areas through a documented procedure.</description>
+      </row>
+      <row>
+        <constraint>Accessibility</constraint>
+        <description>Entry controls must not exclude authorized persons with reduced mobility.</description>
+      </row>
+    </safety_notes>
+  </extended_description>
+
+  <references>
+    <row>
+      <reference>CAPEC-390: Bypassing Physical Security</reference>
+      <link>https://capec.mitre.org/data/definitions/390.html</link>
+    </row>
+    <row>
+      <reference>NIST SP 800-53 Rev. 5: PE-2 Physical Access Authorizations, PE-3 Physical Access Control</reference>
+      <link>https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final</link>
+    </row>
+    <row>
+      <reference>ISO/IEC 27001:2022, Annex A: 7.1 Physical security perimeters, 7.2 Physical entry</reference>
+      <link>https://www.iso.org/standard/27001</link>
+    </row>
+    <row>
+      <reference>CWE-1263: Improper Physical Access Control (frontier: hardware-level access control)</reference>
+      <link>https://cwe.mitre.org/data/definitions/1263.html</link>
+    </row>
+  </references>
+
+  <credits>
+    <row>
+      <full_name>Matéo Florian Callec</full_name>
+      <email>mateo@callec.net</email>
+      <orcid>0009-0000-8025-5350</orcid>
+      <organization>Physical Weakness Registry</organization>
+    </row>
+  </credits>
+</weakness>

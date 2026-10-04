@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weakness xmlns="urn:pwr:entry">
+  <metadata>
+    <id>2</id>
+    <schema_version>1</schema_version>
+    <content_version>0</content_version>
+    <status>active</status>
+    <abstraction>base</abstraction>
+    <parent>1</parent>
+    <created>2026-10-04</created>
+  </metadata>
+
+  <title>Missing Physical Entry Control for Sensitive Area</title>
+
+  <description>The facility does not control entry to an area that holds sensitive assets, so anyone who can reach the area can enter it.</description>
+
+  <extended_description>
+    <applicability>Rooms, enclosures and zones whose contents justify restricting entry, such as server rooms, network closets, archives and rooms holding confidential material. Areas that hold nothing sensitive, or that are intentionally open to the public, are not affected. A control that is present but too weak or bypassable is not covered by this entry.</applicability>
+
+    <exploitation>Any person who can reach the door or opening of the area can enter it, with no check of identity or authorization.</exploitation>
+
+    <consequences>
+      <row>
+        <impact>Confidentiality</impact>
+        <details>Unauthorized persons can view, copy or remove information, media and equipment.</details>
+      </row>
+      <row>
+        <impact>Integrity</impact>
+        <details>Equipment can be tampered with, reconfigured or connected to.</details>
+      </row>
+      <row>
+        <impact>Availability</impact>
+        <details>Equipment can be switched off, damaged or removed.</details>
+      </row>
+    </consequences>
+
+    <potential_mitigations>
+      <row>
+        <measure>Install an entry control</measure>
+        <description>Fit each sensitive area with a control suited to its sensitivity, such as an electronic lock with a reader, a keyed lock with managed keys, or an attended checkpoint.</description>
+      </row>
+      <row>
+        <measure>Close and lock the door automatically</measure>
+        <description>Use a door that closes and locks by itself, so that the control is not left open by default.</description>
+      </row>
+      <row>
+        <measure>Define who may enter</measure>
+        <description>Authorize named persons or roles for the area, and withdraw access when it is no longer needed.</description>
+      </row>
+      <row>
+        <measure>Record entries</measure>
+        <description>Log entries to the area and review the records.</description>
+      </row>
+    </potential_mitigations>
+
+    <safety_notes>
+      <row>
+        <constraint>Emergency egress</constraint>
+        <description>The control must not impede exit. Where regulations require it, the door must open from the inside without a key or credential.</description>
+      </row>
+      <row>
+        <constraint>Behaviour on power failure</constraint>
+        <description>The state of electronic locks on power loss must be defined with evacuation in mind.</description>
+      </row>
+      <row>
+        <constraint>Emergency services access</constraint>
+        <description>Responders must be able to enter through a documented procedure.</description>
+      </row>
+    </safety_notes>
+  </extended_description>
+
+  <references>
+    <row>
+      <reference>CAPEC-390: Bypassing Physical Security</reference>
+      <link>https://capec.mitre.org/data/definitions/390.html</link>
+    </row>
+    <row>
+      <reference>NIST SP 800-53 Rev. 5: PE-3 Physical Access Control</reference>
+      <link>https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final</link>
+    </row>
+    <row>
+      <reference>ISO/IEC 27001:2022, Annex A: 7.2 Physical entry, 7.3 Securing offices, rooms and facilities</reference>
+      <link>https://www.iso.org/standard/27001</link>
+    </row>
+  </references>
+
+  <credits>
+    <row>
+      <full_name>Matéo Florian Callec</full_name>
+      <email>mateo@callec.net</email>
+      <orcid>0009-0000-8025-5350</orcid>
+      <organization>Physical Weakness Registry</organization>
+    </row>
+  </credits>
+</weakness>

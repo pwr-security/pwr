@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weakness xmlns="urn:pwr:entry">
+  <metadata>
+    <id>3</id>
+    <schema_version>1</schema_version>
+    <content_version>0</content_version>
+    <status>active</status>
+    <abstraction>base</abstraction>
+    <parent>1</parent>
+    <created>2026-10-04</created>
+  </metadata>
+
+  <title>Excessive Physical Access Rights</title>
+
+  <alternate_terms>
+    <term>Overly Broad Access Rights</term>
+  </alternate_terms>
+
+  <description>A person holds physical access rights to areas that their role does not require.</description>
+
+  <extended_description>
+    <applicability>Any facility that assigns access rights to persons or groups through badges, keys or codes, such as a general-purpose badge that also opens the server room. The weakness lies in the scope of the rights, not in the credential technology. Rights that match the role are not affected.</applicability>
+
+    <exploitation>A person who holds the rights, or anyone who obtains their credential, can enter areas that the role does not require.</exploitation>
+
+    <consequences>
+      <row>
+        <impact>Confidentiality</impact>
+        <details>Persons can view or remove information, media and equipment outside their duties.</details>
+      </row>
+      <row>
+        <impact>Integrity</impact>
+        <details>Equipment can be altered by persons with no need to handle it.</details>
+      </row>
+      <row>
+        <impact>Extent of compromise</impact>
+        <details>The loss or misuse of one credential exposes every area it opens.</details>
+      </row>
+    </consequences>
+
+    <potential_mitigations>
+      <row>
+        <measure>Define access by role</measure>
+        <description>Map each area to the roles that need it, and grant rights from that mapping.</description>
+      </row>
+      <row>
+        <measure>Separate sensitive areas</measure>
+        <description>Require a specific authorization for sensitive areas instead of including them in general-purpose access profiles.</description>
+      </row>
+      <row>
+        <measure>Review rights periodically</measure>
+        <description>Review who holds access to each sensitive area, and remove rights that are no longer needed.</description>
+      </row>
+      <row>
+        <measure>Withdraw rights on change of role</measure>
+        <description>Remove rights when a person changes role or leaves.</description>
+      </row>
+    </potential_mitigations>
+
+    <safety_notes>
+      <row>
+        <constraint>Emergency egress</constraint>
+        <description>Narrowing access rights must not prevent anyone from leaving an area.</description>
+      </row>
+      <row>
+        <constraint>Operational continuity</constraint>
+        <description>Maintenance and on-call staff still need timely access. Provide it through a defined procedure rather than broad standing rights.</description>
+      </row>
+      <row>
+        <constraint>Emergency services access</constraint>
+        <description>Responders must retain access through a documented procedure.</description>
+      </row>
+    </safety_notes>
+  </extended_description>
+
+  <references>
+    <row>
+      <reference>NIST SP 800-53 Rev. 5: PE-2 Physical Access Authorizations, AC-6 Least Privilege</reference>
+      <link>https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final</link>
+    </row>
+    <row>
+      <reference>ISO/IEC 27001:2022, Annex A: 7.2 Physical entry</reference>
+      <link>https://www.iso.org/standard/27001</link>
+    </row>
+  </references>
+
+  <credits>
+    <row>
+      <full_name>Matéo Florian Callec</full_name>
+      <email>mateo@callec.net</email>
+      <orcid>0009-0000-8025-5350</orcid>
+      <organization>Physical Weakness Registry</organization>
+    </row>
+  </credits>
+</weakness>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weakness xmlns="urn:pwr:entry">
+  <metadata>
+    <id>6</id>
+    <schema_version>1</schema_version>
+    <content_version>0</content_version>
+    <status>active</status>
+    <abstraction>base</abstraction>
+    <parent>1</parent>
+    <created>2026-10-04</created>
+  </metadata>
+
+  <title>Insufficient Verification and Supervision of Visitor Access</title>
+
+  <description>The facility does not adequately verify the identity and purpose of visitors, or does not supervise them while they are inside.</description>
+
+  <extended_description>
+    <applicability>Facilities that admit persons who are not staff, such as guests, contractors, delivery personnel and auditors. Areas intended for open public access are not affected.</applicability>
+
+    <exploitation>A person gains entry by presenting as a visitor, or a genuine visitor reaches areas beyond the purpose of the visit, because identity and purpose are not checked or the visit is neither accompanied nor limited.</exploitation>
+
+    <consequences>
+      <row>
+        <impact>Confidentiality</impact>
+        <details>Visitors can view or take information, media and equipment in areas they have no reason to reach.</details>
+      </row>
+      <row>
+        <impact>Integrity</impact>
+        <details>Equipment can be altered by a person unknown to the organization.</details>
+      </row>
+      <row>
+        <impact>Accountability</impact>
+        <details>The presence and movements of visitors cannot be established afterwards.</details>
+      </row>
+    </consequences>
+
+    <potential_mitigations>
+      <row>
+        <measure>Verify identity and purpose</measure>
+        <description>Check each visitor's identity and the purpose of the visit, and have the host confirm the visit before admission.</description>
+      </row>
+      <row>
+        <measure>Register and badge visits</measure>
+        <description>Record arrival and departure, and issue a visibly distinct visitor credential that expires at the end of the visit.</description>
+      </row>
+      <row>
+        <measure>Limit visitor access</measure>
+        <description>Restrict visitor credentials to the areas the visit requires.</description>
+      </row>
+      <row>
+        <measure>Supervise visits</measure>
+        <description>Have a host accompany visitors in non-public areas, or confine them to defined zones.</description>
+      </row>
+    </potential_mitigations>
+
+    <safety_notes>
+      <row>
+        <constraint>Personal data</constraint>
+        <description>Visitor records contain personal data and must be protected and retained as required by applicable law.</description>
+      </row>
+    </safety_notes>
+  </extended_description>
+
+  <references>
+    <row>
+      <reference>NIST SP 800-53 Rev. 5: PE-8 Visitor Access Records</reference>
+      <link>https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final</link>
+    </row>
+    <row>
+      <reference>ISO/IEC 27001:2022, Annex A: 7.2 Physical entry</reference>
+      <link>https://www.iso.org/standard/27001</link>
+    </row>
+  </references>
+
+  <credits>
+    <row>
+      <full_name>Matéo Florian Callec</full_name>
+      <email>mateo@callec.net</email>
+      <orcid>0009-0000-8025-5350</orcid>
+      <organization>Physical Weakness Registry</organization>
+    </row>
+  </credits>
+</weakness>

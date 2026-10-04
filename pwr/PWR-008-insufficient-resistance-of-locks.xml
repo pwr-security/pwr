@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weakness xmlns="urn:pwr:entry">
+  <metadata>
+    <id>8</id>
+    <schema_version>1</schema_version>
+    <content_version>0</content_version>
+    <status>active</status>
+    <abstraction>variant</abstraction>
+    <parent>7</parent>
+    <created>2026-10-04</created>
+  </metadata>
+
+  <title>Insufficient Resistance of Locks</title>
+
+  <alternate_terms>
+    <term>Weak Locks</term>
+  </alternate_terms>
+
+  <description>A lock on an opening offers less resistance to being defeated than the sensitivity of the area requires.</description>
+
+  <extended_description>
+    <applicability>Locks of doors, windows, gates and enclosures that protect sensitive areas, whether mechanical, electromechanical or electronic, including cylinders, latches, bolts and strike plates. The resistance required depends on the sensitivity of the area and on the time an attacker can be expected to need before being detected or stopped.</applicability>
+
+    <exploitation>An unauthorized person opens the lock without the valid key or credential, because its design or quality allows it to be defeated quickly, by force or by manipulation.</exploitation>
+
+    <consequences>
+      <row>
+        <impact>Access control</impact>
+        <details>Entry control is bypassed without a valid key or credential.</details>
+      </row>
+      <row>
+        <impact>Confidentiality</impact>
+        <details>Unauthorized persons reach information, media and equipment behind the lock.</details>
+      </row>
+      <row>
+        <impact>Integrity</impact>
+        <details>Equipment can be altered by persons who defeated the lock, with little or no trace.</details>
+      </row>
+    </consequences>
+
+    <potential_mitigations>
+      <row>
+        <measure>Select locks by rated resistance</measure>
+        <description>Choose locks with a rated resistance to forced and non-destructive opening suited to the sensitivity of the area.</description>
+      </row>
+      <row>
+        <measure>Match the surrounding hardware</measure>
+        <description>Ensure that the door, frame and strike plate that hold the lock are as strong as the lock itself.</description>
+      </row>
+      <row>
+        <measure>Protect exposed parts</measure>
+        <description>Cover or conceal parts of the lock that can be reached from outside.</description>
+      </row>
+      <row>
+        <measure>Replace outdated locks</measure>
+        <description>Replace locks whose design is known to be defeated easily.</description>
+      </row>
+    </potential_mitigations>
+  </extended_description>
+
+  <references>
+    <row>
+      <reference>CAPEC-391: Bypassing Physical Locks</reference>
+      <link>https://capec.mitre.org/data/definitions/391.html</link>
+    </row>
+    <row>
+      <reference>NIST SP 800-53 Rev. 5: PE-3 Physical Access Control</reference>
+      <link>https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final</link>
+    </row>
+    <row>
+      <reference>ISO/IEC 27001:2022, Annex A: 7.3 Securing offices, rooms and facilities</reference>
+      <link>https://www.iso.org/standard/27001</link>
+    </row>
+  </references>
+
+  <credits>
+    <row>
+      <full_name>Matéo Florian Callec</full_name>
+      <email>mateo@callec.net</email>
+      <orcid>0009-0000-8025-5350</orcid>
+      <organization>Physical Weakness Registry</organization>
+    </row>
+  </credits>
+</weakness>

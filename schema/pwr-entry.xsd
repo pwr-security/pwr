@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  PWR (Physical Weakness Registry)
+  schema_version: 1
+  Language: XSD 1.0
+
+  BUSINESS CONSTRAINTS NOT VALIDATED BY THE XSD SCHEMA:
+    1. <id> must match the file name (e.g. PWR-001-....xml contains <id>1</id>).
+    2. <id> is unique across the registry and is never reused.
+    3. <parent> is required when abstraction is "base" or "variant",
+       and must be absent when abstraction is "class".
+    4. <parent> and <replaced_by> must reference an existing entry.
+    5. <replaced_by> and <deprecation_reason> are required when status is
+       "deprecated" and must be absent when status is "active".
+    6. An entry can only go from "active" to "deprecated", never back.
+    7. <content_version> must not decrease (compared with the main branch).
+    8. <modified> is absent on a new entry and required once the entry has been
+       modified (content_version above 0, or any change compared with the main
+       branch); when present it must not be earlier than <created>.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="urn:pwr:entry"
+           targetNamespace="urn:pwr:entry"
+           elementFormDefault="qualified">
+
+  <!-- Numeric identifier. Displayed as PWR-<id>. Starts at 1. -->
+  <xs:simpleType name="PwrId">
+    <xs:restriction base="xs:positiveInteger"/>
+  </xs:simpleType>
+
+  <!-- Version of the text of an entry. Starts at 0. -->
+  <xs:simpleType name="ContentVersion">
+    <xs:restriction base="xs:nonNegativeInteger"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="Status">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="active"/>
+      <xs:enumeration value="deprecated"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Abstraction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="class"/>
+      <xs:enumeration value="base"/>
+      <xs:enumeration value="variant"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- ISO 8601 calendar date, short form only: YYYY-MM-DD -->
+  <xs:simpleType name="IsoDate">
+    <xs:restriction base="xs:date">
+      <xs:pattern value="\d{4}-\d{2}-\d{2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Single-line title. Whitespace is collapsed. -->
+  <xs:simpleType name="Title">
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="200"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Short single-line label (alternate term, impact, measure, constraint...). -->
+  <xs:simpleType name="Label">
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="200"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Free text: must contain at least one non-whitespace character. -->
+  <xs:simpleType name="NonEmptyText">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[\s\S]*\S[\s\S]*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- http or https URL. -->
+  <xs:simpleType name="HttpUrl">
+    <xs:restriction base="xs:anyURI">
+      <xs:pattern value="https?://\S+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Email">
+    <xs:restriction base="xs:token">
+      <xs:pattern value="[^@\s]+@[^@\s]+\.[^@\s]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- ORCID iD: 0000-0002-1825-0097 (last character may be X). -->
+  <xs:simpleType name="Orcid">
+    <xs:restriction base="xs:token">
+      <xs:pattern value="\d{4}-\d{4}-\d{4}-\d{3}[\dX]"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="Metadata">
+    <xs:sequence>
+      <xs:element name="id"                 type="PwrId"/>
+      <!-- Structure version of this document format. Fixed to 1. -->
+      <xs:element name="schema_version"     type="xs:integer" fixed="1"/>
+      <xs:element name="content_version"    type="ContentVersion"/>
+      <xs:element name="status"             type="Status"/>
+      <xs:element name="abstraction"        type="Abstraction"/>
+      <!-- Required for base and variant (see rule 3 above). -->
+      <xs:element name="parent"             type="PwrId" minOccurs="0"/>
+      <xs:element name="created"            type="IsoDate"/>
+      <!-- Absent until the entry is first modified (see rule 8 above). -->
+      <xs:element name="modified"           type="IsoDate" minOccurs="0"/>
+      <!-- Only for deprecated entries (see rule 5 above). -->
+      <xs:element name="replaced_by"        type="PwrId" minOccurs="0"/>
+      <xs:element name="deprecation_reason" type="NonEmptyText" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AlternateTerms">
+    <xs:sequence>
+      <xs:element name="term" type="Label" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Table: consequences (impact, details) -->
+  <xs:complexType name="ConsequencesTable">
+    <xs:sequence>
+      <xs:element name="row" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="impact"  type="Label"/>
+            <xs:element name="details" type="NonEmptyText"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Table: potential_mitigations (measure, description) -->
+  <xs:complexType name="MitigationsTable">
+    <xs:sequence>
+      <xs:element name="row" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="measure"     type="Label"/>
+            <xs:element name="description" type="NonEmptyText"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Table: safety_notes (constraint, description) -->
+  <xs:complexType name="SafetyNotesTable">
+    <xs:sequence>
+      <xs:element name="row" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="constraint"  type="Label"/>
+            <xs:element name="description" type="NonEmptyText"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ExtendedDescription">
+    <xs:sequence>
+      <xs:element name="applicability"         type="NonEmptyText"/>
+      <xs:element name="exploitation"          type="NonEmptyText"/>
+      <xs:element name="consequences"          type="ConsequencesTable"/>
+      <xs:element name="potential_mitigations" type="MitigationsTable"/>
+      <xs:element name="safety_notes"          type="SafetyNotesTable" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Table: references (reference, link). Optional as a whole. -->
+  <xs:complexType name="References">
+    <xs:sequence>
+      <xs:element name="row" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="reference" type="Label"/>
+            <xs:element name="link"      type="HttpUrl"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--
+    Table: credits (full_name, email, orcid, organization). Optional as a whole.
+    full_name and organization are required in every row; email and orcid are optional.
+    organization is the legal name of the company or institution, or "Independent".
+    Publishing e-mail addresses in a public repository is discouraged (they are
+    harvested and stay in the Git history).
+  -->
+  <xs:complexType name="Credits">
+    <xs:sequence>
+      <xs:element name="row" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="full_name"    type="Label"/>
+            <xs:element name="email"        type="Email" minOccurs="0"/>
+            <xs:element name="orcid"        type="Orcid" minOccurs="0"/>
+            <xs:element name="organization" type="Label"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="weakness">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="metadata"             type="Metadata"/>
+        <xs:element name="title"                type="Title"/>
+        <xs:element name="alternate_terms"      type="AlternateTerms" minOccurs="0"/>
+        <xs:element name="description"          type="NonEmptyText"/>
+        <xs:element name="extended_description" type="ExtendedDescription"/>
+        <xs:element name="references"           type="References" minOccurs="0"/>
+        <xs:element name="credits"              type="Credits" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

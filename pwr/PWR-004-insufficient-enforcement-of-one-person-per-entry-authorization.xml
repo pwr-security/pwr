@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weakness xmlns="urn:pwr:entry">
+  <metadata>
+    <id>4</id>
+    <schema_version>1</schema_version>
+    <content_version>0</content_version>
+    <status>active</status>
+    <abstraction>base</abstraction>
+    <parent>1</parent>
+    <created>2026-10-04</created>
+  </metadata>
+
+  <title>Insufficient Enforcement of One Person per Entry Authorization</title>
+
+  <alternate_terms>
+    <term>Tailgating</term>
+    <term>Piggybacking</term>
+  </alternate_terms>
+
+  <description>The facility does not ensure that an entry authorization admits only the person it was granted to, so additional persons can pass with it.</description>
+
+  <extended_description>
+    <applicability>Controlled entrances where an authorization, such as a badge, a code or a key, is meant to admit a single person, including doors, gates, turnstiles and vehicle entrances. The level of enforcement required depends on the sensitivity of the area behind the entrance.</applicability>
+
+    <exploitation>A person without authorization enters together with, or immediately behind, an authorized person, with or without that person's consent.</exploitation>
+
+    <consequences>
+      <row>
+        <impact>Confidentiality</impact>
+        <details>Unauthorized persons reach information, media and equipment behind the control.</details>
+      </row>
+      <row>
+        <impact>Integrity</impact>
+        <details>Equipment can be altered by persons who were never authorized.</details>
+      </row>
+      <row>
+        <impact>Accountability</impact>
+        <details>Access records name the credential holder, not the persons who actually entered.</details>
+      </row>
+    </consequences>
+
+    <potential_mitigations>
+      <row>
+        <measure>Admit one person per validation</measure>
+        <description>Use an entrance that passes a single person for each validation, such as a turnstile, a revolving door or an airlock.</description>
+      </row>
+      <row>
+        <measure>Detect multiple passages</measure>
+        <description>Where passing a single person cannot be enforced, detect a second passage and raise an alert.</description>
+      </row>
+      <row>
+        <measure>Apply anti-passback rules</measure>
+        <description>Prevent a credential from entering twice without an exit in between.</description>
+      </row>
+      <row>
+        <measure>Instruct staff</measure>
+        <description>Tell staff not to hold doors for unrecognized persons, and give them a way to challenge or report.</description>
+      </row>
+    </potential_mitigations>
+  </extended_description>
+
+  <references>
+    <row>
+      <reference>NIST SP 800-53 Rev. 5: PE-3 Physical Access Control</reference>
+      <link>https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final</link>
+    </row>
+    <row>
+      <reference>ISO/IEC 27001:2022, Annex A: 7.2 Physical entry, 7.4 Physical security monitoring</reference>
+      <link>https://www.iso.org/standard/27001</link>
+    </row>
+  </references>
+
+  <credits>
+    <row>
+      <full_name>Matéo Florian Callec</full_name>
+      <email>mateo@callec.net</email>
+      <orcid>0009-0000-8025-5350</orcid>
+      <organization>Physical Weakness Registry</organization>
+    </row>
+  </credits>
+</weakness>

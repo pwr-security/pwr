@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weakness xmlns="urn:pwr:entry">
+  <metadata>
+    <id>5</id>
+    <schema_version>1</schema_version>
+    <content_version>0</content_version>
+    <status>active</status>
+    <abstraction>base</abstraction>
+    <parent>1</parent>
+    <created>2026-10-04</created>
+  </metadata>
+
+  <title>Improper Protection of Emergency Exits Against Unauthorized Entry</title>
+
+  <description>An emergency exit can be used to enter the facility, or an area within it, without authorization.</description>
+
+  <extended_description>
+    <applicability>Doors and openings intended for exit in an emergency, on the perimeter of the facility or of a protected area. Regular entrances are not affected.</applicability>
+
+    <exploitation>An unauthorized person enters through an emergency exit because it can be opened from the outside, has been left open, or is not monitored.</exploitation>
+
+    <consequences>
+      <row>
+        <impact>Access control</impact>
+        <details>Entry controls at regular entrances are bypassed.</details>
+      </row>
+      <row>
+        <impact>Confidentiality</impact>
+        <details>Unauthorized persons reach information, media and equipment inside.</details>
+      </row>
+      <row>
+        <impact>Integrity</impact>
+        <details>Equipment can be altered by persons who entered unseen.</details>
+      </row>
+    </consequences>
+
+    <potential_mitigations>
+      <row>
+        <measure>Prevent opening from outside</measure>
+        <description>Fit emergency exits with no external handle, key cylinder or other means of opening from the outside.</description>
+      </row>
+      <row>
+        <measure>Monitor exit doors</measure>
+        <description>Fit each emergency exit with a door position sensor, and raise an alert when it opens outside an emergency.</description>
+      </row>
+      <row>
+        <measure>Keep doors closed</measure>
+        <description>Use self-closing doors and detect doors left open.</description>
+      </row>
+      <row>
+        <measure>Inspect exits regularly</measure>
+        <description>Check exits for tampering, devices that hold them open, and damaged hardware.</description>
+      </row>
+    </potential_mitigations>
+
+    <safety_notes>
+      <row>
+        <constraint>Egress from inside</constraint>
+        <description>No protection may prevent or delay opening from the inside. Hardware must comply with the applicable fire and building regulations.</description>
+      </row>
+      <row>
+        <constraint>Delayed egress and local alarms</constraint>
+        <description>Delayed-egress locks and local alarms are acceptable only where regulations permit them.</description>
+      </row>
+      <row>
+        <constraint>Unobstructed routes</constraint>
+        <description>Exits must not be blocked or locked against entry by chains, bars or similar means.</description>
+      </row>
+    </safety_notes>
+  </extended_description>
+
+  <references>
+    <row>
+      <reference>NIST SP 800-53 Rev. 5: PE-3 Physical Access Control, PE-6 Monitoring Physical Access</reference>
+      <link>https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final</link>
+    </row>
+    <row>
+      <reference>ISO/IEC 27001:2022, Annex A: 7.1 Physical security perimeters, 7.4 Physical security monitoring</reference>
+      <link>https://www.iso.org/standard/27001</link>
+    </row>
+  </references>
+
+  <credits>
+    <row>
+      <full_name>Matéo Florian Callec</full_name>
+      <email>mateo@callec.net</email>
+      <orcid>0009-0000-8025-5350</orcid>
+      <organization>Physical Weakness Registry</organization>
+    </row>
+  </credits>
+</weakness>
