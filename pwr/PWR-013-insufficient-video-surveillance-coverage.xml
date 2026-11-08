@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weakness xmlns="urn:pwr:entry">
+  <metadata>
+    <id>13</id>
+    <schema_version>1</schema_version>
+    <content_version>0</content_version>
+    <status>active</status>
+    <abstraction>base</abstraction>
+    <parent>12</parent>
+    <created>2026-11-08</created>
+  </metadata>
+
+  <title>Insufficient Video Surveillance Coverage</title>
+
+  <alternate_terms>
+    <term>Camera Blind Spots</term>
+  </alternate_terms>
+
+  <description>Video surveillance does not cover the spaces or assets that need observation, or the images it produces are too poor to be useful.</description>
+
+  <extended_description>
+    <applicability>Places where video surveillance is deployed or expected, such as entrances, perimeters, corridors, service doors and the approaches to sensitive areas. Coverage includes the field of view, the image quality needed to understand what happens, and the lighting conditions at all hours.</applicability>
+
+    <exploitation>An unauthorized person moves or acts where no camera sees, or where cameras show too little to be understood.</exploitation>
+
+    <consequences>
+      <row>
+        <impact>Detection</impact>
+        <details>Unauthorized presence and activity are not seen.</details>
+      </row>
+      <row>
+        <impact>Accountability</impact>
+        <details>Incidents cannot be reconstructed or attributed to a person, because no usable footage exists.</details>
+      </row>
+    </consequences>
+
+    <potential_mitigations>
+      <row>
+        <measure>Map coverage against what must be observed</measure>
+        <description>Compare camera fields of view with the spaces and assets to observe, and fill the gaps.</description>
+      </row>
+      <row>
+        <measure>Choose image quality by purpose</measure>
+        <description>Select resolution, lenses and placement according to the need: noticing a presence, recognizing a person or identifying one.</description>
+      </row>
+      <row>
+        <measure>Keep images usable at all hours</measure>
+        <description>Provide lighting or sensors suited to night, glare and backlight.</description>
+      </row>
+      <row>
+        <measure>Keep views clear</measure>
+        <description>Prevent obstructions from stored goods, vegetation and changes to the layout.</description>
+      </row>
+      <row>
+        <measure>Reassess after changes</measure>
+        <description>Review coverage after renovations, moves and new installations.</description>
+      </row>
+    </potential_mitigations>
+
+    <safety_notes>
+      <row>
+        <constraint>Privacy</constraint>
+        <description>Cameras must not cover places where people expect privacy, such as changing rooms and restrooms, and must follow applicable law on video surveillance.</description>
+      </row>
+    </safety_notes>
+  </extended_description>
+
+  <references>
+    <row>
+      <reference>NIST SP 800-53 Rev. 5: PE-6 Monitoring Physical Access</reference>
+      <link>https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final</link>
+    </row>
+    <row>
+      <reference>ISO/IEC 27001:2022, Annex A: 7.4 Physical security monitoring</reference>
+      <link>https://www.iso.org/standard/27001</link>
+    </row>
+  </references>
+
+  <credits>
+    <row>
+      <full_name>Matéo Florian Callec</full_name>
+      <email>mateo@callec.net</email>
+      <orcid>0009-0000-8025-5350</orcid>
+      <organization>Physical Weakness Registry</organization>
+    </row>
+  </credits>
+</weakness>

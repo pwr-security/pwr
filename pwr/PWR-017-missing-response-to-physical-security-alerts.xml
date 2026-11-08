@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weakness xmlns="urn:pwr:entry">
+  <metadata>
+    <id>17</id>
+    <schema_version>1</schema_version>
+    <content_version>0</content_version>
+    <status>active</status>
+    <abstraction>base</abstraction>
+    <parent>12</parent>
+    <created>2026-11-08</created>
+  </metadata>
+
+  <title>Missing Response to Physical Security Alerts</title>
+
+  <description>Physical security alerts are not followed by a response, because no one is assigned to act on them or the response comes too late to matter.</description>
+
+  <extended_description>
+    <applicability>Alerts of any origin that signal abnormal access or behavior, such as alarms, detectors, video analytics, access control events and observations by staff. A response includes verifying the alert, intervening and escalating. The speed required depends on the sensitivity of what is protected.</applicability>
+
+    <exploitation>An unauthorized person continues to act after an alert has been raised, because nobody receives it, nobody is responsible for it, or the response arrives too late.</exploitation>
+
+    <consequences>
+      <row>
+        <impact>Detection</impact>
+        <details>Alerts are raised but have no effect, so detection brings no protection.</details>
+      </row>
+      <row>
+        <impact>Confidentiality</impact>
+        <details>Information, media and equipment can be viewed or removed while the alert is ignored.</details>
+      </row>
+      <row>
+        <impact>Integrity</impact>
+        <details>Equipment can be altered or tampered with while the alert is ignored.</details>
+      </row>
+    </consequences>
+
+    <potential_mitigations>
+      <row>
+        <measure>Assign responsibility</measure>
+        <description>Name who receives each type of alert and who acts on it, with deputies for absences.</description>
+      </row>
+      <row>
+        <measure>Define the response</measure>
+        <description>Write down what to verify, how to intervene and when to escalate, and set a response time for each level of sensitivity.</description>
+      </row>
+      <row>
+        <measure>Make sure alerts reach a person</measure>
+        <description>Route alerts to a staffed station or a reachable on-call person, with a fallback when an alert is not acknowledged.</description>
+      </row>
+      <row>
+        <measure>Give responders the means</measure>
+        <description>Provide responders with the access, communication and authority they need to act.</description>
+      </row>
+      <row>
+        <measure>Exercise and review</measure>
+        <description>Run exercises and review real alerts, including false ones, to improve the response.</description>
+      </row>
+    </potential_mitigations>
+
+    <safety_notes>
+      <row>
+        <constraint>Responder safety</constraint>
+        <description>Responders must not be put at risk. Procedures must say when to call the police instead of intervening.</description>
+      </row>
+    </safety_notes>
+  </extended_description>
+
+  <references>
+    <row>
+      <reference>NIST SP 800-53 Rev. 5: PE-6 Monitoring Physical Access</reference>
+      <link>https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final</link>
+    </row>
+    <row>
+      <reference>ISO/IEC 27001:2022, Annex A: 7.4 Physical security monitoring</reference>
+      <link>https://www.iso.org/standard/27001</link>
+    </row>
+  </references>
+
+  <credits>
+    <row>
+      <full_name>Matéo Florian Callec</full_name>
+      <email>mateo@callec.net</email>
+      <orcid>0009-0000-8025-5350</orcid>
+      <organization>Physical Weakness Registry</organization>
+    </row>
+  </credits>
+</weakness>

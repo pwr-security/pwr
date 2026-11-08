@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weakness xmlns="urn:pwr:entry">
+  <metadata>
+    <id>25</id>
+    <schema_version>1</schema_version>
+    <content_version>0</content_version>
+    <status>active</status>
+    <abstraction>base</abstraction>
+    <parent>19</parent>
+    <created>2026-11-08</created>
+  </metadata>
+
+  <title>Unreliable Timestamps on Access Events</title>
+
+  <alternate_terms>
+    <term>Clock Drift</term>
+  </alternate_terms>
+
+  <description>Access events carry timestamps that are inaccurate, inconsistent between devices or modifiable, so events cannot be ordered or matched with other records.</description>
+
+  <extended_description>
+    <applicability>Readers, controllers, recorders, cameras, alarm panels and servers that stamp events with a time. Includes devices that keep their own clock without synchronization, clocks that can be set by users, and mixed time zones or daylight saving rules.</applicability>
+
+    <exploitation>An access cannot be placed in time with confidence, so it cannot be matched to other events or disproved, and an alibi or a false accusation cannot be tested.</exploitation>
+
+    <consequences>
+      <row>
+        <impact>Investigation</impact>
+        <details>Records from different sources cannot be aligned to reconstruct an incident.</details>
+      </row>
+      <row>
+        <impact>Accountability</impact>
+        <details>Times of access can be disputed, which weakens attribution.</details>
+      </row>
+      <row>
+        <impact>Detection</impact>
+        <details>Time-based rules and correlations produce false results or miss events.</details>
+      </row>
+    </consequences>
+
+    <potential_mitigations>
+      <row>
+        <measure>Synchronize clocks</measure>
+        <description>Set every device from a single trusted time source and monitor the offset.</description>
+      </row>
+      <row>
+        <measure>Restrict clock changes</measure>
+        <description>Allow only named administrators to change the time of a device, and record each change.</description>
+      </row>
+      <row>
+        <measure>Use a uniform time format</measure>
+        <description>Record time in a single reference, such as UTC, with the time zone stated.</description>
+      </row>
+      <row>
+        <measure>Check and correct drift</measure>
+        <description>Compare timestamps across devices on a schedule and alert when the difference exceeds a set limit.</description>
+      </row>
+      <row>
+        <measure>Retain the time source of each event</measure>
+        <description>Keep the source of the timestamp to tell device time from server time.</description>
+      </row>
+    </potential_mitigations>
+  </extended_description>
+
+  <references>
+    <row>
+      <reference>NIST SP 800-53 Rev. 5: AU-8 Time Stamps</reference>
+      <link>https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final</link>
+    </row>
+    <row>
+      <reference>ISO/IEC 27001:2022, Annex A: 8.17 Clock synchronization</reference>
+      <link>https://www.iso.org/standard/27001</link>
+    </row>
+  </references>
+
+  <credits>
+    <row>
+      <full_name>Matéo Florian Callec</full_name>
+      <email>mateo@callec.net</email>
+      <orcid>0009-0000-8025-5350</orcid>
+      <organization>Physical Weakness Registry</organization>
+    </row>
+  </credits>
+</weakness>

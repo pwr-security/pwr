@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weakness xmlns="urn:pwr:entry">
+  <metadata>
+    <id>12</id>
+    <schema_version>1</schema_version>
+    <content_version>0</content_version>
+    <status>active</status>
+    <abstraction>class</abstraction>
+    <created>2026-11-08</created>
+  </metadata>
+
+  <title>Insufficient Physical Security Monitoring</title>
+
+  <alternate_terms>
+    <term>Inadequate Surveillance</term>
+    <term>Weak Physical Monitoring</term>
+  </alternate_terms>
+
+  <description>The facility does not adequately observe its spaces and assets, or the observation has no effect, so unauthorized presence or activity goes unnoticed.</description>
+
+  <extended_description>
+    <applicability>Spaces and assets whose protection depends on noticing unauthorized presence or activity, including entrances, corridors, perimeters, sensitive areas and individual high-value assets. Observation may rely on cameras, detectors, alarms or people. The level of monitoring required depends on the sensitivity of what is protected.</applicability>
+
+    <exploitation>An unauthorized person enters or acts inside the facility without being stopped, because the space or asset is not observed, the signals are not detected, or no one acts on them.</exploitation>
+
+    <consequences>
+      <row>
+        <impact>Detection</impact>
+        <details>Unauthorized presence and activity are not seen, or are seen too late.</details>
+      </row>
+      <row>
+        <impact>Confidentiality</impact>
+        <details>Information, media and equipment can be viewed or removed unnoticed.</details>
+      </row>
+      <row>
+        <impact>Integrity</impact>
+        <details>Equipment can be altered or tampered with unnoticed.</details>
+      </row>
+    </consequences>
+
+    <potential_mitigations>
+      <row>
+        <measure>Define what must be observed</measure>
+        <description>Identify the spaces and assets that need observation according to their sensitivity, including corridors and approaches.</description>
+      </row>
+      <row>
+        <measure>Cover them with suitable means</measure>
+        <description>Use cameras, detectors or patrols so that each identified space or asset is observed.</description>
+      </row>
+      <row>
+        <measure>Turn observations into alerts</measure>
+        <description>Make sure signals reach someone who is able to act on them.</description>
+      </row>
+      <row>
+        <measure>Protect the monitoring itself</measure>
+        <description>Protect monitoring devices and their recordings against tampering.</description>
+      </row>
+      <row>
+        <measure>Test coverage and alerting</measure>
+        <description>Test periodically, including at night and outside business hours.</description>
+      </row>
+    </potential_mitigations>
+
+    <safety_notes>
+      <row>
+        <constraint>Privacy</constraint>
+        <description>Monitoring of people, notably video surveillance, is regulated. Define purpose, retention and notification in accordance with applicable law.</description>
+      </row>
+    </safety_notes>
+  </extended_description>
+
+  <references>
+    <row>
+      <reference>NIST SP 800-53 Rev. 5: PE-6 Monitoring Physical Access</reference>
+      <link>https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final</link>
+    </row>
+    <row>
+      <reference>ISO/IEC 27001:2022, Annex A: 7.4 Physical security monitoring</reference>
+      <link>https://www.iso.org/standard/27001</link>
+    </row>
+  </references>
+
+  <credits>
+    <row>
+      <full_name>Matéo Florian Callec</full_name>
+      <email>mateo@callec.net</email>
+      <orcid>0009-0000-8025-5350</orcid>
+      <organization>Physical Weakness Registry</organization>
+    </row>
+  </credits>
+</weakness>

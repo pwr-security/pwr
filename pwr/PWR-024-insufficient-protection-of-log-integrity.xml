@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weakness xmlns="urn:pwr:entry">
+  <metadata>
+    <id>24</id>
+    <schema_version>1</schema_version>
+    <content_version>0</content_version>
+    <status>active</status>
+    <abstraction>base</abstraction>
+    <parent>19</parent>
+    <created>2026-11-08</created>
+  </metadata>
+
+  <title>Insufficient Protection of Log Integrity</title>
+
+  <alternate_terms>
+    <term>Log Tampering</term>
+  </alternate_terms>
+
+  <description>Access logs and recordings can be altered, deleted or forged without detection, so they cannot be relied on as evidence of what took place.</description>
+
+  <extended_description>
+    <applicability>Access control records, visitor registers, key logs and video recordings, whether stored on devices at the point of access, on servers or on paper. Includes records that can be changed by the people whose access they document, by administrators without oversight, or by anyone with physical access to the storage.</applicability>
+
+    <exploitation>A person removes or alters the records of an access, or adds false ones, so that the access is hidden or attributed to someone else.</exploitation>
+
+    <consequences>
+      <row>
+        <impact>Integrity</impact>
+        <details>Records no longer reflect what took place.</details>
+      </row>
+      <row>
+        <impact>Accountability</impact>
+        <details>Individuals can avoid responsibility or be wrongly implicated.</details>
+      </row>
+      <row>
+        <impact>Detection</impact>
+        <details>Unauthorized access can be concealed from reviews and investigations.</details>
+      </row>
+    </consequences>
+
+    <potential_mitigations>
+      <row>
+        <measure>Restrict write and delete rights</measure>
+        <description>Allow only a limited set of named administrators to modify or delete records, and none of the people whose access is recorded.</description>
+      </row>
+      <row>
+        <measure>Store records away from the point of access</measure>
+        <description>Send records to a protected location as they are created, so that tampering with a local device does not erase them.</description>
+      </row>
+      <row>
+        <measure>Detect modification</measure>
+        <description>Use append-only storage or integrity checks, and alert on gaps, deletions and changes.</description>
+      </row>
+      <row>
+        <measure>Protect paper records</measure>
+        <description>Use bound registers with numbered pages, and keep them in a controlled location.</description>
+      </row>
+      <row>
+        <measure>Log administrative actions</measure>
+        <description>Record every change made to the records or their configuration, and review these changes.</description>
+      </row>
+    </potential_mitigations>
+  </extended_description>
+
+  <references>
+    <row>
+      <reference>NIST SP 800-53 Rev. 5: AU-9 Protection of Audit Information</reference>
+      <link>https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final</link>
+    </row>
+    <row>
+      <reference>ISO/IEC 27001:2022, Annex A: 8.15 Logging</reference>
+      <link>https://www.iso.org/standard/27001</link>
+    </row>
+  </references>
+
+  <credits>
+    <row>
+      <full_name>Matéo Florian Callec</full_name>
+      <email>mateo@callec.net</email>
+      <orcid>0009-0000-8025-5350</orcid>
+      <organization>Physical Weakness Registry</organization>
+    </row>
+  </credits>
+</weakness>

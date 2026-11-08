@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weakness xmlns="urn:pwr:entry">
+  <metadata>
+    <id>14</id>
+    <schema_version>1</schema_version>
+    <content_version>0</content_version>
+    <status>active</status>
+    <abstraction>base</abstraction>
+    <parent>12</parent>
+    <created>2026-11-08</created>
+  </metadata>
+
+  <title>Missing Detection of Forced or Held-Open Openings</title>
+
+  <description>The facility does not detect when an opening is forced or held open, so the loss of its protection goes unnoticed.</description>
+
+  <extended_description>
+    <applicability>Doors, gates, hatches, windows and other openings that protect sensitive areas, including those controlled by an access system. An opening is held open when it stays open longer than a passage requires, whether propped, kept open by a defeated closer, or stuck by a fault. The detection required depends on the sensitivity of the area.</applicability>
+
+    <exploitation>An unauthorized person uses an opening that has been forced or left open, because nothing reports its state.</exploitation>
+
+    <consequences>
+      <row>
+        <impact>Detection</impact>
+        <details>A forced or open opening stays unnoticed, so the protection it provides is lost without warning.</details>
+      </row>
+      <row>
+        <impact>Access control</impact>
+        <details>The opening no longer restricts entry.</details>
+      </row>
+    </consequences>
+
+    <potential_mitigations>
+      <row>
+        <measure>Monitor the state of openings</measure>
+        <description>Fit openings to sensitive areas with position sensors that report whether they are open or closed.</description>
+      </row>
+      <row>
+        <measure>Alert on abnormal states</measure>
+        <description>Alert the personnel responsible when an opening is opened without a valid authorization, or stays open beyond a set time.</description>
+      </row>
+      <row>
+        <measure>Use self-closing doors</measure>
+        <description>Use doors and gates that close by themselves when released, so that one left open does not stay open.</description>
+      </row>
+      <row>
+        <measure>Set delays by use</measure>
+        <description>Adapt the allowed open time to the use of each opening, so that alerts stay meaningful.</description>
+      </row>
+      <row>
+        <measure>Test the sensors</measure>
+        <description>Test opening sensors and their alerts periodically.</description>
+      </row>
+    </potential_mitigations>
+
+    <safety_notes>
+      <row>
+        <constraint>Fire doors</constraint>
+        <description>Fire doors may be held open only by approved devices that release on a fire alarm. Detection rules must account for them.</description>
+      </row>
+    </safety_notes>
+  </extended_description>
+
+  <references>
+    <row>
+      <reference>NIST SP 800-53 Rev. 5: PE-3 Physical Access Control, PE-6 Monitoring Physical Access</reference>
+      <link>https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final</link>
+    </row>
+    <row>
+      <reference>ISO/IEC 27001:2022, Annex A: 7.4 Physical security monitoring</reference>
+      <link>https://www.iso.org/standard/27001</link>
+    </row>
+  </references>
+
+  <credits>
+    <row>
+      <full_name>Matéo Florian Callec</full_name>
+      <email>mateo@callec.net</email>
+      <orcid>0009-0000-8025-5350</orcid>
+      <organization>Physical Weakness Registry</organization>
+    </row>
+  </credits>
+</weakness>

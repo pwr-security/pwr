@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weakness xmlns="urn:pwr:entry">
+  <metadata>
+    <id>26</id>
+    <schema_version>1</schema_version>
+    <content_version>0</content_version>
+    <status>active</status>
+    <abstraction>base</abstraction>
+    <parent>19</parent>
+    <created>2026-11-08</created>
+  </metadata>
+
+  <title>Missing Correlation of Access Events</title>
+
+  <description>Access events are not compared with one another or with other sources, so inconsistencies that reveal unauthorized access remain unnoticed.</description>
+
+  <extended_description>
+    <applicability>Facilities where access is recorded by several systems, such as access control, visitor registers, video, alarms, key logs and information system logs. Includes records kept in separate systems that are never compared, and rules that evaluate each event alone.</applicability>
+
+    <exploitation>An unauthorized access is consistent with each record taken alone, and is revealed only when records are compared, for example a person who badges in without having badged out, or who appears in two places at once.</exploitation>
+
+    <consequences>
+      <row>
+        <impact>Detection</impact>
+        <details>Anomalies that appear only across several records are not detected.</details>
+      </row>
+      <row>
+        <impact>Access control</impact>
+        <details>Misuse of credentials, such as lending or cloning, goes unnoticed.</details>
+      </row>
+      <row>
+        <impact>Investigation</impact>
+        <details>Records from different sources must be matched by hand after an incident.</details>
+      </row>
+    </consequences>
+
+    <potential_mitigations>
+      <row>
+        <measure>Bring records together</measure>
+        <description>Collect access events from all systems in a single place, with a common format and synchronized time.</description>
+      </row>
+      <row>
+        <measure>Define consistency rules</measure>
+        <description>Check for entries without exits, simultaneous presence in distant places, access during leave or after departure, and access without a matching visit or work order.</description>
+      </row>
+      <row>
+        <measure>Compare physical and other records</measure>
+        <description>Match door events with video, alarm and visitor records, and with logical access to the systems in the same area.</description>
+      </row>
+      <row>
+        <measure>Alert and follow up</measure>
+        <description>Raise an alert on each inconsistency and handle it through the response process.</description>
+      </row>
+    </potential_mitigations>
+
+    <safety_notes>
+      <row>
+        <constraint>Personal data</constraint>
+        <description>Combining records increases the information held about individuals. Correlation must be limited to its security purpose and comply with applicable law.</description>
+      </row>
+    </safety_notes>
+  </extended_description>
+
+  <references>
+    <row>
+      <reference>NIST SP 800-53 Rev. 5: PE-6 Monitoring Physical Access</reference>
+      <link>https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final</link>
+    </row>
+    <row>
+      <reference>ISO/IEC 27001:2022, Annex A: 7.4 Physical security monitoring</reference>
+      <link>https://www.iso.org/standard/27001</link>
+    </row>
+  </references>
+
+  <credits>
+    <row>
+      <full_name>Matéo Florian Callec</full_name>
+      <email>mateo@callec.net</email>
+      <orcid>0009-0000-8025-5350</orcid>
+      <organization>Physical Weakness Registry</organization>
+    </row>
+  </credits>
+</weakness>

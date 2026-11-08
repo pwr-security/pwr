@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weakness xmlns="urn:pwr:entry">
+  <metadata>
+    <id>15</id>
+    <schema_version>1</schema_version>
+    <content_version>0</content_version>
+    <status>active</status>
+    <abstraction>base</abstraction>
+    <parent>12</parent>
+    <created>2026-11-08</created>
+  </metadata>
+
+  <title>Missing Intrusion Detection in Sensitive Areas</title>
+
+  <description>Nothing detects the presence of an unauthorized person inside a sensitive area, so an intrusion is not signaled.</description>
+
+  <extended_description>
+    <applicability>Sensitive areas that are left unoccupied for periods, such as server rooms, archives and storage rooms, and areas where presence must be limited to authorized persons. Detection may rely on motion or presence sensors, glass-break or vibration sensors, or video analytics. The state of a door is a separate weakness.</applicability>
+
+    <exploitation>An unauthorized person who has entered a sensitive area, by any means, stays there and acts without being signaled.</exploitation>
+
+    <consequences>
+      <row>
+        <impact>Detection</impact>
+        <details>An intrusion goes unnoticed for as long as the person remains in the area.</details>
+      </row>
+      <row>
+        <impact>Confidentiality</impact>
+        <details>Information, media and equipment can be viewed or removed unnoticed.</details>
+      </row>
+      <row>
+        <impact>Integrity</impact>
+        <details>Equipment can be altered or tampered with unnoticed.</details>
+      </row>
+    </consequences>
+
+    <potential_mitigations>
+      <row>
+        <measure>Fit sensitive areas with detection</measure>
+        <description>Install presence or motion detection inside unoccupied sensitive areas, suited to their layout.</description>
+      </row>
+      <row>
+        <measure>Combine detection methods</measure>
+        <description>Use more than one type of sensor, so that a single weakness does not blind the system.</description>
+      </row>
+      <row>
+        <measure>Arm detection automatically</measure>
+        <description>Arm detection by schedule or by occupancy when the area is unoccupied, instead of relying on someone to do it.</description>
+      </row>
+      <row>
+        <measure>Send detections to a responder</measure>
+        <description>Route every detection to someone who is able to act on it.</description>
+      </row>
+      <row>
+        <measure>Limit false alarms</measure>
+        <description>Tune sensors to avoid frequent false alarms, which lead to alerts being ignored.</description>
+      </row>
+      <row>
+        <measure>Test the system</measure>
+        <description>Test sensors and alerting periodically.</description>
+      </row>
+    </potential_mitigations>
+
+    <safety_notes>
+      <row>
+        <constraint>Persons inside an armed area</constraint>
+        <description>The system must not trap or endanger persons who are inside when it arms, and must let them leave.</description>
+      </row>
+    </safety_notes>
+  </extended_description>
+
+  <references>
+    <row>
+      <reference>NIST SP 800-53 Rev. 5: PE-6 Monitoring Physical Access, PE-6(1) Intrusion Alarms and Surveillance Equipment</reference>
+      <link>https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final</link>
+    </row>
+    <row>
+      <reference>ISO/IEC 27001:2022, Annex A: 7.4 Physical security monitoring</reference>
+      <link>https://www.iso.org/standard/27001</link>
+    </row>
+  </references>
+
+  <credits>
+    <row>
+      <full_name>Matéo Florian Callec</full_name>
+      <email>mateo@callec.net</email>
+      <orcid>0009-0000-8025-5350</orcid>
+      <organization>Physical Weakness Registry</organization>
+    </row>
+  </credits>
+</weakness>

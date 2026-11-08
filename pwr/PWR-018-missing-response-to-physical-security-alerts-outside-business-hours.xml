@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weakness xmlns="urn:pwr:entry">
+  <metadata>
+    <id>18</id>
+    <schema_version>1</schema_version>
+    <content_version>0</content_version>
+    <status>active</status>
+    <abstraction>variant</abstraction>
+    <parent>17</parent>
+    <created>2026-11-08</created>
+  </metadata>
+
+  <title>Missing Response to Physical Security Alerts Outside Business Hours</title>
+
+  <description>Physical security alerts raised at night, on weekends or on holidays are not followed by a response, because no one is on duty or reachable to act on them.</description>
+
+  <extended_description>
+    <applicability>Facilities where staffing, monitoring or on-call coverage is reduced or absent outside business hours, while alarms, detectors and access control events remain active. Includes unattended sites and monitoring stations that are not staffed continuously.</applicability>
+
+    <exploitation>An unauthorized person acts when few or no people are present, relying on alerts going unanswered until the next working day.</exploitation>
+
+    <consequences>
+      <row>
+        <impact>Detection</impact>
+        <details>Alerts are raised but remain unread until staff return, so detection brings no protection.</details>
+      </row>
+      <row>
+        <impact>Confidentiality</impact>
+        <details>Information, media and equipment can be viewed or removed over a long period without interruption.</details>
+      </row>
+      <row>
+        <impact>Integrity</impact>
+        <details>Equipment can be altered or tampered with over a long period without interruption.</details>
+      </row>
+    </consequences>
+
+    <potential_mitigations>
+      <row>
+        <measure>Cover all hours</measure>
+        <description>Staff a monitoring station continuously, or contract an external monitoring service, for areas that need protection outside business hours.</description>
+      </row>
+      <row>
+        <measure>Maintain an on-call rota</measure>
+        <description>Name a reachable on-call person and a deputy for every period without staff, including weekends and holidays.</description>
+      </row>
+      <row>
+        <measure>Escalate unacknowledged alerts</measure>
+        <description>Forward an alert to the next person or to a security provider when it is not acknowledged within a set time.</description>
+      </row>
+      <row>
+        <measure>Define the remote response</measure>
+        <description>Allow on-call staff to verify and act remotely, and state when a responder must travel to the site.</description>
+      </row>
+      <row>
+        <measure>Test outside business hours</measure>
+        <description>Trigger test alerts at night and on weekends to check that they are received and answered in time.</description>
+      </row>
+    </potential_mitigations>
+
+    <safety_notes>
+      <row>
+        <constraint>Lone responders</constraint>
+        <description>A responder must not be sent alone to an unattended site where an intruder may be present. Procedures must say when to call the police instead.</description>
+      </row>
+    </safety_notes>
+  </extended_description>
+
+  <references>
+    <row>
+      <reference>NIST SP 800-53 Rev. 5: PE-6 Monitoring Physical Access</reference>
+      <link>https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final</link>
+    </row>
+    <row>
+      <reference>ISO/IEC 27001:2022, Annex A: 7.4 Physical security monitoring</reference>
+      <link>https://www.iso.org/standard/27001</link>
+    </row>
+  </references>
+
+  <credits>
+    <row>
+      <full_name>Matéo Florian Callec</full_name>
+      <email>mateo@callec.net</email>
+      <orcid>0009-0000-8025-5350</orcid>
+      <organization>Physical Weakness Registry</organization>
+    </row>
+  </credits>
+</weakness>

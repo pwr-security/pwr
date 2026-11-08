@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weakness xmlns="urn:pwr:entry">
+  <metadata>
+    <id>19</id>
+    <schema_version>1</schema_version>
+    <content_version>0</content_version>
+    <status>active</status>
+    <abstraction>class</abstraction>
+    <created>2026-11-08</created>
+  </metadata>
+
+  <title>Insufficient Logging of Physical Access</title>
+
+  <alternate_terms>
+    <term>Inadequate Access Logging</term>
+    <term>Weak Physical Audit Trail</term>
+  </alternate_terms>
+
+  <description>Physical access events are not recorded, or are recorded in a way that does not allow them to be relied on to establish who accessed what, where and when.</description>
+
+  <extended_description>
+    <applicability>Any facility, area or asset whose access is controlled or should be accountable, including entry points, internal areas, equipment rooms and storage. Applies to automated records, such as access control events, and to manual records, such as visitor registers and key logs.</applicability>
+
+    <exploitation>An unauthorized or abusive access leaves no usable trace, or its trace cannot be trusted, so it goes unnoticed and cannot be attributed.</exploitation>
+
+    <consequences>
+      <row>
+        <impact>Accountability</impact>
+        <details>Individuals cannot be identified as responsible for an access.</details>
+      </row>
+      <row>
+        <impact>Detection</impact>
+        <details>Unauthorized or abnormal access cannot be detected from the records.</details>
+      </row>
+      <row>
+        <impact>Investigation</impact>
+        <details>Incidents cannot be reconstructed, scoped or proven after the fact.</details>
+      </row>
+    </consequences>
+
+    <potential_mitigations>
+      <row>
+        <measure>Define what to record</measure>
+        <description>Set which areas, events and details must be recorded, according to the sensitivity of what is protected.</description>
+      </row>
+      <row>
+        <measure>Record reliably</measure>
+        <description>Capture each event with the identity, place, time and outcome, including denied attempts.</description>
+      </row>
+      <row>
+        <measure>Protect the records</measure>
+        <description>Restrict who can alter or delete records, and detect any change to them.</description>
+      </row>
+      <row>
+        <measure>Review and retain</measure>
+        <description>Review records on a schedule and keep them for a period set by risk and applicable law.</description>
+      </row>
+    </potential_mitigations>
+
+    <safety_notes>
+      <row>
+        <constraint>Personal data</constraint>
+        <description>Access records identify individuals and must be limited to what is needed, protected and retained in accordance with applicable law.</description>
+      </row>
+    </safety_notes>
+  </extended_description>
+
+  <references>
+    <row>
+      <reference>NIST SP 800-53 Rev. 5: PE-3 Physical Access Control</reference>
+      <link>https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final</link>
+    </row>
+    <row>
+      <reference>NIST SP 800-53 Rev. 5: PE-8 Visitor Access Records</reference>
+      <link>https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final</link>
+    </row>
+    <row>
+      <reference>ISO/IEC 27001:2022, Annex A: 7.2 Physical entry</reference>
+      <link>https://www.iso.org/standard/27001</link>
+    </row>
+  </references>
+
+  <credits>
+    <row>
+      <full_name>Matéo Florian Callec</full_name>
+      <email>mateo@callec.net</email>
+      <orcid>0009-0000-8025-5350</orcid>
+      <organization>Physical Weakness Registry</organization>
+    </row>
+  </credits>
+</weakness>

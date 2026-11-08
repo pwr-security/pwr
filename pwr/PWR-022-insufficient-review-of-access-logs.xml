@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weakness xmlns="urn:pwr:entry">
+  <metadata>
+    <id>22</id>
+    <schema_version>1</schema_version>
+    <content_version>0</content_version>
+    <status>active</status>
+    <abstraction>base</abstraction>
+    <parent>19</parent>
+    <created>2026-11-08</created>
+  </metadata>
+
+  <title>Insufficient Review of Access Logs</title>
+
+  <description>Access logs are recorded but not reviewed, or are reviewed too rarely or too superficially to reveal unauthorized or abnormal access.</description>
+
+  <extended_description>
+    <applicability>Access control records, visitor registers and key logs, whether automated or manual. Includes reviews that are not assigned, not scheduled, not documented, or limited to a search made after an incident.</applicability>
+
+    <exploitation>An unauthorized or abusive access appears in the records but is not noticed, because no one examines them or the examination comes long after the event.</exploitation>
+
+    <consequences>
+      <row>
+        <impact>Detection</impact>
+        <details>Abnormal access remains in the records unnoticed.</details>
+      </row>
+      <row>
+        <impact>Persistence</impact>
+        <details>Repeated or ongoing unauthorized access continues because it is not identified.</details>
+      </row>
+      <row>
+        <impact>Accountability</impact>
+        <details>Misuse of access rights is not attributed or sanctioned.</details>
+      </row>
+    </consequences>
+
+    <potential_mitigations>
+      <row>
+        <measure>Assign the review</measure>
+        <description>Name who reviews access records, with a deputy, independent of those whose access is reviewed.</description>
+      </row>
+      <row>
+        <measure>Set a frequency</measure>
+        <description>Review records on a schedule set by the sensitivity of the area, and after any related alert or incident.</description>
+      </row>
+      <row>
+        <measure>Define what to look for</measure>
+        <description>Check for access outside normal hours, repeated denied attempts, unused rights, and entries that do not match a duty or visit.</description>
+      </row>
+      <row>
+        <measure>Document and follow up</measure>
+        <description>Record each review and its findings, and handle anomalies through the response process.</description>
+      </row>
+    </potential_mitigations>
+
+    <safety_notes>
+      <row>
+        <constraint>Personal data</constraint>
+        <description>Reviewers see individuals' movements. Their access to records must be limited and justified, in accordance with applicable law.</description>
+      </row>
+    </safety_notes>
+  </extended_description>
+
+  <references>
+    <row>
+      <reference>NIST SP 800-53 Rev. 5: PE-6 Monitoring Physical Access</reference>
+      <link>https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final</link>
+    </row>
+    <row>
+      <reference>ISO/IEC 27001:2022, Annex A: 7.4 Physical security monitoring</reference>
+      <link>https://www.iso.org/standard/27001</link>
+    </row>
+  </references>
+
+  <credits>
+    <row>
+      <full_name>Matéo Florian Callec</full_name>
+      <email>mateo@callec.net</email>
+      <orcid>0009-0000-8025-5350</orcid>
+      <organization>Physical Weakness Registry</organization>
+    </row>
+  </credits>
+</weakness>

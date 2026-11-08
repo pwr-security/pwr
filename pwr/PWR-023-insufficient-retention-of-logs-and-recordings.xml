@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weakness xmlns="urn:pwr:entry">
+  <metadata>
+    <id>23</id>
+    <schema_version>1</schema_version>
+    <content_version>0</content_version>
+    <status>active</status>
+    <abstraction>base</abstraction>
+    <parent>19</parent>
+    <created>2026-11-08</created>
+  </metadata>
+
+  <title>Insufficient Retention of Logs and Recordings</title>
+
+  <description>Access logs and recordings are kept for too short a period, so they are no longer available when an incident is discovered or investigated.</description>
+
+  <extended_description>
+    <applicability>Access control records, visitor registers, key logs and video recordings. Includes automatic overwriting of storage, retention periods set only by storage capacity, and records that are kept for a period shorter than the time an incident usually takes to be discovered.</applicability>
+
+    <exploitation>An unauthorized or abusive access is discovered after the records covering it have been deleted or overwritten.</exploitation>
+
+    <consequences>
+      <row>
+        <impact>Investigation</impact>
+        <details>Incidents cannot be reconstructed, scoped or proven because the records no longer exist.</details>
+      </row>
+      <row>
+        <impact>Accountability</impact>
+        <details>Responsible individuals cannot be identified.</details>
+      </row>
+      <row>
+        <impact>Detection</impact>
+        <details>Past access cannot be examined to determine whether an earlier compromise took place.</details>
+      </row>
+    </consequences>
+
+    <potential_mitigations>
+      <row>
+        <measure>Set a retention period</measure>
+        <description>Define a period for each type of record, based on the time incidents usually take to be discovered and on applicable law.</description>
+      </row>
+      <row>
+        <measure>Size the storage</measure>
+        <description>Provide enough capacity to hold the full retention period without early overwriting.</description>
+      </row>
+      <row>
+        <measure>Preserve records on incident</measure>
+        <description>Suspend deletion for records related to an incident or an investigation until it is closed.</description>
+      </row>
+      <row>
+        <measure>Delete at the end of the period</measure>
+        <description>Delete records once the period has ended, using a controlled and documented process.</description>
+      </row>
+    </potential_mitigations>
+
+    <safety_notes>
+      <row>
+        <constraint>Personal data</constraint>
+        <description>Retention is limited by law. Retention periods must not exceed what applicable law allows, and recordings of individuals are often subject to shorter limits.</description>
+      </row>
+    </safety_notes>
+  </extended_description>
+
+  <references>
+    <row>
+      <reference>NIST SP 800-53 Rev. 5: PE-6 Monitoring Physical Access</reference>
+      <link>https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final</link>
+    </row>
+    <row>
+      <reference>ISO/IEC 27001:2022, Annex A: 7.4 Physical security monitoring</reference>
+      <link>https://www.iso.org/standard/27001</link>
+    </row>
+  </references>
+
+  <credits>
+    <row>
+      <full_name>Matéo Florian Callec</full_name>
+      <email>mateo@callec.net</email>
+      <orcid>0009-0000-8025-5350</orcid>
+      <organization>Physical Weakness Registry</organization>
+    </row>
+  </credits>
+</weakness>

@@ -59,7 +59,7 @@
         <description>The control must not impede exit. Where regulations require it, the door must open from the inside without a key or credential.</description>
       </row>
       <row>
-        <constraint>Behaviour on power failure</constraint>
+        <constraint>Behavior on power failure</constraint>
         <description>The state of electronic locks on power loss must be defined with evacuation in mind.</description>
       </row>
       <row>

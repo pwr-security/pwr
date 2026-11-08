@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weakness xmlns="urn:pwr:entry">
+  <metadata>
+    <id>16</id>
+    <schema_version>1</schema_version>
+    <content_version>0</content_version>
+    <status>active</status>
+    <abstraction>base</abstraction>
+    <parent>12</parent>
+    <created>2026-11-08</created>
+  </metadata>
+
+  <title>Missing Tamper Detection for Monitoring Devices</title>
+
+  <description>Monitoring devices can be disabled, moved, obstructed or disconnected without the facility being alerted.</description>
+
+  <extended_description>
+    <applicability>Devices that provide monitoring, such as cameras, detectors, door sensors, alarm panels and recorders, with their cabling and power. The tamper resistance of a device's internal hardware belongs to CWE. This entry concerns whether the facility notices that a deployed device has been interfered with.</applicability>
+
+    <exploitation>An unauthorized person disables or impairs a monitoring device, then enters or acts while it is blind. The facility is not alerted to the interference.</exploitation>
+
+    <consequences>
+      <row>
+        <impact>Detection</impact>
+        <details>Monitoring stops working without notice and gives false assurance.</details>
+      </row>
+      <row>
+        <impact>Accountability</impact>
+        <details>No record exists of what happened while the device was impaired.</details>
+      </row>
+    </consequences>
+
+    <potential_mitigations>
+      <row>
+        <measure>Detect tampering</measure>
+        <description>Alert when a device is opened, moved, obstructed or disconnected, or when it loses power or signal.</description>
+      </row>
+      <row>
+        <measure>Supervise the signal path</measure>
+        <description>Monitor the cabling, power and network of monitoring devices, and use a regular signal from each device so that its silence raises an alert.</description>
+      </row>
+      <row>
+        <measure>Mount devices out of easy reach</measure>
+        <description>Install devices out of easy reach and in protective housings.</description>
+      </row>
+      <row>
+        <measure>Protect control equipment</measure>
+        <description>Keep recorders, panels and controllers in protected rooms.</description>
+      </row>
+      <row>
+        <measure>Review device status</measure>
+        <description>Check device status regularly, and treat unexplained outages as incidents.</description>
+      </row>
+    </potential_mitigations>
+  </extended_description>
+
+  <references>
+    <row>
+      <reference>NIST SP 800-53 Rev. 5: PE-6(1) Intrusion Alarms and Surveillance Equipment</reference>
+      <link>https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final</link>
+    </row>
+    <row>
+      <reference>ISO/IEC 27001:2022, Annex A: 7.4 Physical security monitoring</reference>
+      <link>https://www.iso.org/standard/27001</link>
+    </row>
+    <row>
+      <reference>CWE-1388: Physical Access Issues and Concerns (frontier: hardware-level physical access)</reference>
+      <link>https://cwe.mitre.org/data/definitions/1388.html</link>
+    </row>
+  </references>
+
+  <credits>
+    <row>
+      <full_name>Matéo Florian Callec</full_name>
+      <email>mateo@callec.net</email>
+      <orcid>0009-0000-8025-5350</orcid>
+      <organization>Physical Weakness Registry</organization>
+    </row>
+  </credits>
+</weakness>

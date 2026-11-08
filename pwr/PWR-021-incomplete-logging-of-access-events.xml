@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weakness xmlns="urn:pwr:entry">
+  <metadata>
+    <id>21</id>
+    <schema_version>1</schema_version>
+    <content_version>0</content_version>
+    <status>active</status>
+    <abstraction>base</abstraction>
+    <parent>19</parent>
+    <created>2026-11-08</created>
+  </metadata>
+
+  <title>Incomplete Logging of Access Events</title>
+
+  <description>Access events are recorded without the details needed to establish who accessed what, where and when, or only some events are recorded.</description>
+
+  <extended_description>
+    <applicability>Access control systems, registers and key logs that record events but omit certain events, such as denied attempts, door forced or held open, or exits, or omit details, such as identity, location, time or outcome. Includes records that identify a shared credential instead of a person.</applicability>
+
+    <exploitation>An unauthorized or abusive access falls in a gap of the records, so it cannot be detected or attributed.</exploitation>
+
+    <consequences>
+      <row>
+        <impact>Accountability</impact>
+        <details>Records do not identify who is responsible for an access.</details>
+      </row>
+      <row>
+        <impact>Detection</impact>
+        <details>Failed attempts and abnormal patterns are not visible in the records.</details>
+      </row>
+      <row>
+        <impact>Investigation</impact>
+        <details>Incidents cannot be fully reconstructed from the records.</details>
+      </row>
+    </consequences>
+
+    <potential_mitigations>
+      <row>
+        <measure>Define a minimum record</measure>
+        <description>Require identity, place, time, direction and outcome for every event.</description>
+      </row>
+      <row>
+        <measure>Record all event types</measure>
+        <description>Include denied attempts, exits, door alarms and administrative changes to access rights.</description>
+      </row>
+      <row>
+        <measure>Identify individuals</measure>
+        <description>Prohibit shared credentials and anonymous codes for logged areas.</description>
+      </row>
+      <row>
+        <measure>Check completeness</measure>
+        <description>Compare records from different sources, such as readers, registers and video, to find gaps.</description>
+      </row>
+    </potential_mitigations>
+
+    <safety_notes>
+      <row>
+        <constraint>Personal data</constraint>
+        <description>Records must be limited to the details needed and retained in accordance with applicable law.</description>
+      </row>
+    </safety_notes>
+  </extended_description>
+
+  <references>
+    <row>
+      <reference>NIST SP 800-53 Rev. 5: PE-3 Physical Access Control</reference>
+      <link>https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final</link>
+    </row>
+    <row>
+      <reference>ISO/IEC 27001:2022, Annex A: 7.2 Physical entry</reference>
+      <link>https://www.iso.org/standard/27001</link>
+    </row>
+  </references>
+
+  <credits>
+    <row>
+      <full_name>Matéo Florian Callec</full_name>
+      <email>mateo@callec.net</email>
+      <orcid>0009-0000-8025-5350</orcid>
+      <organization>Physical Weakness Registry</organization>
+    </row>
+  </credits>
+</weakness>
